@@ -1,0 +1,61 @@
+name: Bug report
+description: Something doesn't work, or shows the wrong thing
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste tokens, passwords, configuration files or customer data here.** This page is public. Blank out
+        names, addresses and keys in anything you attach.
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      options:
+        - FortiMon
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown under Settings > Updates (for example 1.11.1).
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Where it runs
+      options:
+        - Windows, as a service
+        - Windows, as a program
+        - Linux, as a service
+        - Linux, as a program
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you saw and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: If you know them.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log lines or a screenshot
+      description: Only the relevant lines, with names, addresses and keys blanked out.
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Before you send
+      options:
+        - label: I removed tokens, passwords, configuration and customer data from everything I wrote or attached.
+          required: true

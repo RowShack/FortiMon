@@ -1,0 +1,51 @@
+name: Feature request
+description: An idea for something MonStack should do
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste tokens, passwords, configuration files or customer data here.** This page is public.
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      options:
+        - FortiMon
+        - Another MonStack app
+        - MonStack in general
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version you use
+      description: For example 1.11.1.
+  - type: dropdown
+    id: os
+    attributes:
+      label: Where it runs
+      options:
+        - Windows
+        - Linux
+        - Other
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The problem or the situation, before the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like MonStack to do?
+    validations:
+      required: true
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Before you send
+      options:
+        - label: I removed tokens, passwords, configuration and customer data from everything I wrote or attached.
+          required: true

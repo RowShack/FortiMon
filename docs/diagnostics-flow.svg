@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 804" font-family="inherit" role="img" aria-labelledby="dfl-title dfl-desc">
+  <title id="dfl-title">How FortiMon turns a poll into an issue</title>
+  <desc id="dfl-desc">Every poll FortiMon collects data, derives measurements, compares them with thresholds and learned baselines, and proposes candidate conditions. A condition must be seen for N polls in a row (3 by default) before it becomes an issue; one that disappears first is a transient blip. Issues are grouped under their root cause and scored per area. An issue resolves after it has been clear for 3 polls in a row. Acknowledged and muted issues are left out of the score. Raised and resolved issues go to the event history.</desc>
+  <defs>
+    <marker id="dfl-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--muted, #8b949e)"/>
+    </marker>
+  </defs>
+
+  <!-- the whole pipeline repeats every poll -->
+  <path d="M30,652 H8 V52 H28" fill="none" stroke="var(--muted, #8b949e)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#dfl-ah)"/>
+  <text x="25" y="400" transform="rotate(-90 25 400)" text-anchor="middle" font-size="12" fill="var(--muted, #8b949e)">repeats every poll</text>
+
+  <!-- main pipeline boxes -->
+  <g fill="var(--panel, #161b22)" stroke="var(--line, #30363d)" stroke-width="1.5">
+    <rect x="30" y="14" width="420" height="76" rx="8"/>
+    <rect x="30" y="114" width="420" height="76" rx="8"/>
+    <rect x="30" y="214" width="420" height="76" rx="8"/>
+    <rect x="30" y="314" width="420" height="76" rx="8"/>
+    <rect x="30" y="414" width="420" height="76" rx="8" stroke="var(--accent, #1f6feb)"/>
+    <rect x="30" y="514" width="420" height="76" rx="8"/>
+    <rect x="30" y="614" width="420" height="76" rx="8"/>
+    <rect x="30" y="714" width="420" height="76" rx="8" stroke="var(--accent, #1f6feb)"/>
+  </g>
+
+  <!-- step numbers -->
+  <g fill="var(--accent, #1f6feb)">
+    <circle cx="52" cy="36" r="11"/><circle cx="52" cy="136" r="11"/><circle cx="52" cy="236" r="11"/>
+    <circle cx="52" cy="336" r="11"/><circle cx="52" cy="436" r="11"/><circle cx="52" cy="536" r="11"/>
+    <circle cx="52" cy="636" r="11"/><circle cx="52" cy="736" r="11"/>
+  </g>
+  <g fill="var(--bg, #0d1117)" font-size="12" font-weight="700" text-anchor="middle">
+    <text x="52" y="40">1</text><text x="52" y="140">2</text><text x="52" y="240">3</text><text x="52" y="340">4</text>
+    <text x="52" y="440">5</text><text x="52" y="540">6</text><text x="52" y="640">7</text><text x="52" y="740">8</text>
+  </g>
+
+  <!-- stage titles -->
+  <g fill="var(--text, #e6edf3)" font-size="14" font-weight="600">
+    <text x="74" y="41">Collect</text>
+    <text x="74" y="141">Measure and derive</text>
+    <text x="74" y="241">Compare</text>
+    <text x="74" y="341">Candidate conditions</text>
+    <text x="74" y="441">Sustain (confirm)</text>
+    <text x="74" y="541">Issue raised</text>
+    <text x="74" y="641">Group and score</text>
+    <text x="74" y="741">Resolve (hysteresis)</text>
+  </g>
+
+  <!-- stage details -->
+  <g fill="var(--muted, #8b949e)" font-size="12">
+    <text x="74" y="62">Every poll (default 10 s) via the FortiGate REST API;</text>
+    <text x="74" y="78">DHCP every 3 polls, licences hourly, probes every 30 s.</text>
+    <text x="74" y="162">Counters become rates, errors per million packets,</text>
+    <text x="74" y="178">flaps in 10 min, client scores 0&#8211;100, AP-to-port map.</text>
+    <text x="74" y="262">Fixed thresholds, plus each metric's learned normal</text>
+    <text x="74" y="278">for this hour of the week (anomaly: 4 std-devs off).</text>
+    <text x="74" y="362">Each check proposes one condition per device or port,</text>
+    <text x="74" y="378">with a severity, linked to a likely cause if one is seen.</text>
+    <text x="74" y="462">Must be seen N polls in a row: 3 by default (~30 s);</text>
+    <text x="74" y="478">1&#8211;2 for outages, 6 for CPU, memory, radio, saturation.</text>
+    <text x="74" y="562">Severity: <tspan fill="var(--crit, #f85149)" font-weight="600">critical</tspan> &#183; <tspan fill="var(--warn, #d29922)" font-weight="600">warning</tspan> &#183; <tspan fill="var(--info, #58a6ff)" font-weight="600">info</tspan> (re-checked each poll).</text>
+    <text x="74" y="578">Card shows evidence, a fix and related config changes.</text>
+    <text x="74" y="662">Symptoms sit under their root; root impact = worst symptom.</text>
+    <text x="74" y="678">Area: 100 &#8722; 40 / 15 / 3 per issue; overall 0.6&#215;min + 0.4&#215;mean.</text>
+    <text x="74" y="762">Clear for 3 polls in a row (~30 s); any sighting resets.</text>
+    <text x="74" y="778">Logged as resolved, with how long it lasted.</text>
+  </g>
+
+  <!-- down arrows between stages -->
+  <g stroke="var(--muted, #8b949e)" stroke-width="1.5" marker-end="url(#dfl-ah)">
+    <line x1="240" y1="90" x2="240" y2="112"/>
+    <line x1="240" y1="190" x2="240" y2="212"/>
+    <line x1="240" y1="290" x2="240" y2="312"/>
+    <line x1="240" y1="390" x2="240" y2="412"/>
+    <line x1="240" y1="490" x2="240" y2="512"/>
+    <line x1="240" y1="590" x2="240" y2="612"/>
+    <line x1="240" y1="690" x2="240" y2="712"/>
+  </g>
+  <g fill="var(--muted, #8b949e)" font-size="12">
+    <text x="250" y="506">N polls in a row</text>
+    <text x="250" y="706">condition gone</text>
+  </g>
+
+  <!-- side boxes -->
+  <g fill="var(--panel-2, #1c232d)" stroke="var(--line, #30363d)" stroke-width="1.5">
+    <rect x="540" y="214" width="340" height="76" rx="8"/>
+    <rect x="540" y="394" width="340" height="118" rx="8"/>
+    <rect x="540" y="556" width="340" height="122" rx="8" stroke="var(--info, #58a6ff)"/>
+    <rect x="540" y="704" width="340" height="86" rx="8"/>
+  </g>
+  <g fill="var(--text, #e6edf3)" font-size="14" font-weight="600">
+    <text x="556" y="240">Learned baselines</text>
+    <text x="556" y="418">Watching</text>
+    <text x="556" y="580" fill="var(--info, #58a6ff)">Acknowledge (admins, operators)</text>
+    <text x="556" y="626" fill="var(--info, #58a6ff)">Mute permanently (admins, operators)</text>
+    <text x="556" y="730">Event history (Diagnostics)</text>
+  </g>
+  <text x="556" y="466" fill="var(--muted, #8b949e)" font-size="14" font-weight="600">Transient blip</text>
+  <g fill="var(--muted, #8b949e)" font-size="12">
+    <text x="556" y="260">Learns slowly from outliers, so a fault never</text>
+    <text x="556" y="276">becomes normal. Saved across restarts.</text>
+    <text x="556" y="438">Seen, but not yet N polls in a row (e.g. 2/3).</text>
+    <text x="556" y="486">Gone for one poll before N: dropped and</text>
+    <text x="556" y="502">counted, never alerted.</text>
+    <text x="556" y="598">Out of the score until the issue resolves.</text>
+    <text x="556" y="644">Out of the score until unmuted, even if it recurs.</text>
+    <text x="556" y="666">Events are still logged either way.</text>
+    <text x="556" y="750">raised &#183; resolved &#183; link up/down &#183; config changes</text>
+    <text x="556" y="766">&#183; HA failovers. The last 300 are kept on disk.</text>
+  </g>
+
+  <!-- side arrows -->
+  <g stroke="var(--muted, #8b949e)" stroke-width="1.5" fill="none" marker-end="url(#dfl-ah)">
+    <line x1="540" y1="252" x2="452" y2="252"/>
+    <line x1="450" y1="452" x2="538" y2="452"/>
+    <line x1="450" y1="566" x2="538" y2="590"/>
+    <line x1="540" y1="652" x2="452" y2="652"/>
+    <line x1="450" y1="752" x2="538" y2="752"/>
+  </g>
+  <g fill="var(--muted, #8b949e)" font-size="12" text-anchor="middle">
+    <text x="495" y="245">normal</text>
+    <text x="495" y="445">not yet</text>
+    <text x="486" y="560">button</text>
+    <text x="495" y="645">not scored</text>
+    <text x="495" y="745">resolved</text>
+  </g>
+</svg>

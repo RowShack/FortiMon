@@ -1,0 +1,29 @@
+MonStack - Licence
+
+Copyright (c) 2026 Byron Smith. All rights reserved.
+
+This licence covers the MonStack applications (including FortiMon and UniMon) in the form they are published for download
+(the installers, update packages and the files inside them), called "the Software" below.
+
+1. Free to use. You may install and use the Software, free of charge, on as many computers as you like, for your own
+   business or personal use, or to monitor your own or your customers' networks.
+
+2. What you may not do. You may not copy, sell, rent, lend, sublicense or redistribute the Software; modify it or make
+   anything derived from it; or decompile, disassemble or otherwise reverse engineer it or try to extract its source
+   code, except where the law says you may do so despite this restriction. You may keep the backup copies you need
+   to use the Software, and you may share links to the official download page.
+
+3. Ownership. The Software is licensed, not sold. All rights not given to you here belong to the copyright holder.
+   Third-party components keep their own licences.
+
+4. No warranty. The Software is provided "as is", without warranty of any kind, express or implied, including
+   fitness for a particular purpose and not infringing anyone's rights. Monitoring results may be incomplete or
+   wrong, and you are responsible for deciding what to do with them.
+
+5. Limit of liability. To the extent the law allows, the copyright holder is not liable for any loss or damage
+   (including lost data, lost profit or business interruption) arising from the Software or from using it.
+
+6. Ending. This licence ends automatically if you break it. Then you must stop using the Software and delete your
+   copies. Sections 3 to 5 continue after it ends.
+
+Questions and bug reports: https://github.com/RowShack/MonStack/issues
