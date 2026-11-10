@@ -48,6 +48,7 @@ a download.
 - [Configuration reference](docs/configuration.md): every Settings section, the data folder and the command line.
 - [User guide](docs/user-guide.md): every tab, with screenshots.
 - [FAQ](docs/faq.md): common problems and questions.
+- [Running it safely](docs/security.md): VPN or tailnet first, `trusted_proxies`, two-step sign-in, what was reviewed.
 
 ## Help and feedback
 

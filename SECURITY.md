@@ -14,8 +14,8 @@ You'll get an answer as soon as it can be looked at, and a fix ships as a new re
 
 ## Supported versions
 
-Only the newest release of each app gets security fixes. MonStack updates itself from this page, so staying current is
-a matter of using *Settings > Updates*.
+Only the newest release of each app gets security fixes. Each MonStack app updates itself from its own releases, so staying
+current is a matter of using *Settings > Updates*.
 
 ## Checking what you download
 
